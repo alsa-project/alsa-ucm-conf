@@ -1,2 +1,2 @@
 # alsa-ucm-conf
-ALSA Use Case Manager configuration (and topologies)
+ALSA Use Case Manager configuration
