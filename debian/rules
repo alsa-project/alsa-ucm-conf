@@ -2,3 +2,7 @@
 
 %:
 	dh $@
+
+override_dh_install:
+	dh_install
+	chmod -x $(CURDIR)/debian/alsa-ucm-conf/usr/share/alsa/ucm2/kblrt5660/*
