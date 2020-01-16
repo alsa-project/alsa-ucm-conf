@@ -1,0 +1,5 @@
+alsa-ucm-conf (1.2.1.2-1) UNRELEASED; urgency=medium
+
+  * Initial release.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 16 Jan 2020 12:11:36 +0100
