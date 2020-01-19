@@ -1,3 +1,9 @@
+alsa-ucm-conf (1.2.1.2-2) unstable; urgency=medium
+
+  * No change, source-only upload after going through NEW.
+
+ -- Jordi Mallach <jordi@debian.org>  Sun, 19 Jan 2020 20:09:59 +0100
+
 alsa-ucm-conf (1.2.1.2-1) unstable; urgency=medium
 
   * Initial release.
