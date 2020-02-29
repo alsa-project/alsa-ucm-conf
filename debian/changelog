@@ -1,6 +1,7 @@
 alsa-ucm-conf (1.2.2-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Update Standards-Version to 4.5.0.
 
  -- Jordi Mallach <jordi@debian.org>  Sat, 29 Feb 2020 16:35:16 +0100
 
