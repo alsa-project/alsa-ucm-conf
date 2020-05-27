@@ -10,14 +10,11 @@ Library directories:
 Those directories are not inspected for the list of available UCM
 configurations. They contain files included from other UCMs.
 
-UCM master configuration path lookup (by priority):
+UCM master configuration path lookup is defined in the top level
+ucm.conf file. This file allows custom directory layout. The new
+ucm2 layout is based on the driver name.
 
-- {ucm_card_name}/{long_card_name}.conf
-- {ucm_card_name}/{ucm_card_name}.conf
-- {driver_name}/{long_card_name}.conf
-- {driver_name}/{driver_name}.conf
-
-For example:
+Example paths:
 
 - USB-Audio/Dell-WD15-Dock.conf
 -- special configuration for the Dell docking station with USB soundcard
