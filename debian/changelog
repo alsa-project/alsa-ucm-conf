@@ -1,6 +1,7 @@
 alsa-ucm-conf (1.2.4-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Update Standards-Version to 4.5.1, with no changes needed.
 
  -- Jordi Mallach <jordi@debian.org>  Mon, 07 Dec 2020 22:08:21 +0100
 
