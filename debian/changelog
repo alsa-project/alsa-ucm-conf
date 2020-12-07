@@ -1,3 +1,9 @@
+alsa-ucm-conf (1.2.4-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 07 Dec 2020 22:08:21 +0100
+
 alsa-ucm-conf (1.2.3-1) unstable; urgency=medium
 
   * New upstream release.
