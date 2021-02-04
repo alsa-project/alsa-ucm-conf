@@ -15,8 +15,7 @@ Rules-Requires-Root: no
 Package: alsa-ucm-conf
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}
-Enhances: libasound2
+Depends: ${misc:Depends}, libasound2 (>= 1.2.4)
 Description: ALSA Use Case Manager configuration files
  This package contains ALSA Use Case Manager configuration of audio
  input/output names and routing for specific audio hardware. They can be
