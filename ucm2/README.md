@@ -13,13 +13,21 @@ configurations. They contain files included from other UCMs.
 UCM master configuration path lookup is defined in the top level
 ucm.conf file. This file allows custom directory layout. The new
 ucm2 layout is based on the kernel module driver name with the
-ALSA driver name fallback.
+ALSA driver name fallback. The virtual cards (no direct hw bound)
+lookups are placed to the separate conf.virt.d directory.
 
 The lookup configuration:
 
   https://git.alsa-project.org/?p=alsa-ucm-conf.git;a=blob;f=ucm2/ucm.conf
 
-Example paths:
+Example paths - new conf.d scheme:
+
+- conf.d/USB-Audio/Dell-WD15-Dock.conf
+-- special configuration for the Dell docking station with USB soundcard
+- conf.virt.d/TwoCardsMix.conf
+-- virtual UCM from two soundcards
+
+Example paths - no conf.d scheme (may be invalidated):
 
 - USB-Audio/Dell-WD15-Dock.conf
 -- special configuration for the Dell docking station with USB soundcard
