@@ -12,9 +12,9 @@ configurations. They contain files included from other UCMs.
 
 UCM master configuration path lookup is defined in the top level
 ucm.conf file. This file allows custom directory layout. The new
-ucm2 layout is based on the kernel module driver name with the
-ALSA driver name fallback. The virtual cards (no direct hw bound)
-lookups are placed to the separate conf.virt.d directory.
+ucm2 layout is based on the ALSA driver name with the kernel driver
+name as fallback. The virtual cards (no direct hw bound) lookups are
+placed to the separate conf.virt.d directory.
 
 The lookup configuration:
 
@@ -34,8 +34,8 @@ Example paths - no conf.d scheme (may be invalidated):
 - TwoCardsMix/TwoCardsMix.conf
 -- virtual UCM from two soundcards
 
-Note: For the driver configurations, use always the real kernel driver
-name or the ALSA driver name - not the ucm card name configuration paths!
+Note: For the driver configurations, use always the ALSA driver name or
+the real kernel driver name - not the ucm card name configuration paths!
 
 The kernel driver name is obtained using sysfs like (last
 part of the path is used from the symlink):
@@ -44,7 +44,7 @@ part of the path is used from the symlink):
   /sys/class/sound/card0/device/driver
 ````
 
-The driver name can be obtained using procfs like:
+The ALSA driver name can be obtained using procfs like:
 
 ````
   cat /proc/asound/cards
