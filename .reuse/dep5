@@ -1,0 +1,13 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: pine64-alsa-ucm
+Source: https://gitlab.com/pine64-org/pine64-alsa-ucm
+
+Files: ucm2/PinePhone/*
+License: BSD-3-Clause
+Copyright: 2021 Martijn Braam <martijn@brixit.nl>
+Copyright: 2020 Luca Weiss <luca@z3ntu.xyz>
+Copyright: 2020 Minecrell <minecrell@minecrell.net>
+Copyright: 2020 Oliver Smith <ollieparanoid@postmarketos.org>
+Copyright: 2020 Pedro Moreno <pmoreno@dcc.fc.up.pt>
+Copyright: 2020 clayton craft <clayton@craftyguy.net>
+Copyright: 2020 Dylan Van Assche <me@dylanvanassche.be>
