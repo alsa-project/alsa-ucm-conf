@@ -1,3 +1,9 @@
+alsa-ucm-conf (1.2.5.1-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 18 Aug 2021 00:46:24 +0200
+
 alsa-ucm-conf (1.2.4-2) unstable; urgency=medium
 
   * Have alsa-ucm-conf depend on latest libasound2, as this is needed for
