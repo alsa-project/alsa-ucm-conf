@@ -2,6 +2,7 @@ alsa-ucm-conf (1.2.5.1-1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Add bugtracker and repository upstream metadata.
+  * Avoid installing upstream .gitignore.
 
  -- Jordi Mallach <jordi@debian.org>  Wed, 18 Aug 2021 00:46:24 +0200
 
