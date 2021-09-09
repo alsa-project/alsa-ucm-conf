@@ -1,3 +1,10 @@
+alsa-ucm-conf (1.2.5.1-2) UNRELEASED; urgency=medium
+
+  * Import upstream signing key and configure watch file to check for
+    sigs.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 09 Sep 2021 12:21:28 +0200
+
 alsa-ucm-conf (1.2.5.1-1) unstable; urgency=medium
 
   * New upstream release.
