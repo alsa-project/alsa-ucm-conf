@@ -11,3 +11,7 @@ Copyright: 2020 Oliver Smith <ollieparanoid@postmarketos.org>
 Copyright: 2020 Pedro Moreno <pmoreno@dcc.fc.up.pt>
 Copyright: 2020 clayton craft <clayton@craftyguy.net>
 Copyright: 2020 Dylan Van Assche <me@dylanvanassche.be>
+
+Files: ucm2/PinePhonePro/*
+License: BSD-3-Clause
+Copyright: 2021 Arnaud Ferraris <arnaud.ferraris@gmail.com>
