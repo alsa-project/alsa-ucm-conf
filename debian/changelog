@@ -2,7 +2,7 @@ alsa-ucm-conf (1.2.6.3-1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Import upstream signing key and configure watch file to check for
-    sigs.
+    sigs (closes: #984652).
   * Update copyright years.
   * Update Standards-Version to 4.6.0.
 
