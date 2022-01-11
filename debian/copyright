@@ -7,11 +7,11 @@ Comment: This package was debianised by Jordi Mallach.
          the alsa-team project at salsa.debian.org.
 
 Files: *
-Copyright: 2019-2020 Advanced Linux Sound Architecture (ALSA) project
+Copyright: 2019-2022 Advanced Linux Sound Architecture (ALSA) project
 License: BSD-3-clause
 
 Files: debian/*
-Copyright: 2020 Debian ALSA Maintainers
+Copyright: 2020-2022 Debian ALSA Maintainers
 License: BSD-3-clause
 
 License: BSD-3-clause
