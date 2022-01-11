@@ -4,6 +4,7 @@ alsa-ucm-conf (1.2.6.3-1) UNRELEASED; urgency=medium
   * Import upstream signing key and configure watch file to check for
     sigs.
   * Update copyright years.
+  * Update Standards-Version to 4.6.0.
 
  -- Jordi Mallach <jordi@debian.org>  Wed, 12 Jan 2022 00:24:12 +0100
 
