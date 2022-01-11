@@ -5,6 +5,8 @@ alsa-ucm-conf (1.2.6.3-1) UNRELEASED; urgency=medium
     sigs (closes: #984652).
   * Update copyright years.
   * Update Standards-Version to 4.6.0.
+  * Add profiles for PinePhone, PineTab and librem5 hardware from Arnaud
+    Ferraris to help upstreaming them (closes: #984654).
 
  -- Jordi Mallach <jordi@debian.org>  Wed, 12 Jan 2022 00:24:12 +0100
 

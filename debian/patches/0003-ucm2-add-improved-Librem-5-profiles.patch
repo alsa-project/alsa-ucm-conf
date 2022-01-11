@@ -1,0 +1,237 @@
+From b4e59d4d9ed1922cdd77159bd732314e8b10591e Mon Sep 17 00:00:00 2001
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Thu, 8 Oct 2020 17:45:30 +0200
+Subject: [PATCH] ucm2: add improved Librem 5 profile
+
+This commit adds a more fine-tuned UCM profile for the Librem 5:
+* input and ouput paths are split so we can select both devices
+  separately
+* it uses standard UCM names for the use-cases and devices
+
+This is not the final profile, as it requires additional components:
+* The headset mic isn't functional on the L5 yet and mic detection isn't
+  implemented, so Headset mic priority is lowered to make sure the
+  internal microphone is always used
+---
+ ucm2/Librem_5/HiFi.conf     | 174 ++++++++++++++++++++++++++++++++++++
+ ucm2/Librem_5/Librem_5.conf |  11 +++
+ ucm2/Librem_5/wm8962.conf   |   1 +
+ ucm2/wm8962                 |   1 +
+ 5 files changed, 206 insertions(+)
+ create mode 100644 ucm2/Librem_5/HiFi.conf
+ create mode 100644 ucm2/Librem_5/Librem_5.conf
+ create mode 120000 ucm2/Librem_5/wm8962.conf
+ create mode 120000 ucm2/wm8962
+
+diff --git a/ucm2/Librem_5/HiFi.conf b/ucm2/Librem_5/HiFi.conf
+new file mode 100644
+index 0000000..ee22392
+--- /dev/null
++++ b/ucm2/Librem_5/HiFi.conf
+@@ -0,0 +1,175 @@
++SectionVerb {
++	EnableSequence [
++		cset "name='Digital Playback Volume' 100,100"
++		cset "name='MIXINL IN2L Switch' off"
++		cset "name='MIXINL IN3L Switch' off"
++		cset "name='MIXINR IN2R Switch' off"
++		cset "name='MIXINR IN3R Switch' off"
++		cset "name='INPGAR IN1R Switch' off"
++		cset "name='INPGAR IN2R Switch' off"
++		cset "name='INPGAR IN3R Switch' on"
++		cset "name='INPGAR IN4R Switch' off"
++		cset "name='INPGAL IN1L Switch' off"
++		cset "name='INPGAL IN2L Switch' off"
++		cset "name='INPGAL IN3L Switch' off"
++		cset "name='INPGAL IN4L Switch' off"
++		cset "name='Input Mixer Switch' off,on"
++		cset "name='SPKOUTL PGA' Mixer"
++		cset "name='SPKOUTR PGA' Mixer"
++	]
++
++	DisableSequence [
++		cset "name='Digital Playback Volume' 0,0"
++	]
++
++	Value {
++	}
++}
++
++SectionDevice."Handset" {
++	Comment "Handset"
++
++	ConflictingDevice [
++		"Headphones"
++		"Speaker"
++	]
++
++	EnableSequence [
++		cset "name='Speaker Switch' off,on"
++		cset "name='DAC L/R Swap Switch' on"
++		cset "name='DAC Monomix Switch' on"
++		cset "name='SPKOUTR PGA' DAC"
++		cset "name='Speaker Volume' 121,121"
++		cset "name='Speaker Boost Volume' 2"
++	]
++
++	DisableSequence [
++		cset "name='Speaker Switch' off,off"
++		cset "name='DAC L/R Swap Switch' off"
++		cset "name='DAC Monomix Switch' off"
++		cset "name='SPKOUTR PGA' Mixer"
++	]
++
++	Value {
++		PlaybackChannels "2"
++		PlaybackPriority "100"
++		PlaybackVolume "name='Speaker Volume'"
++		PlaybackSwitch "name='Speaker Switch'"
++		PlaybackPCM "hw:${CardId},0"
++	}
++}
++
++SectionDevice."Speaker" {
++	Comment "Speaker"
++
++	ConflictingDevice [
++		"Handset"
++		"Headphones"
++	]
++
++	EnableSequence [
++		cset "name='Speaker Switch' on,off"
++		cset "name='DAC Monomix Switch' on"
++		cset "name='SPKOUTL PGA' DAC"
++		cset "name='Speaker Volume' 121,121"
++		cset "name='Speaker Boost Volume' 6"
++	]
++
++	DisableSequence [
++		cset "name='Speaker Switch' off,off"
++		cset "name='DAC Monomix Switch' off"
++		cset "name='SPKOUTL PGA' Mixer"
++	]
++
++	Value {
++		PlaybackChannels "2"
++		PlaybackPriority "500"
++		PlaybackVolume "name='Speaker Volume'"
++		PlaybackSwitch "name='Speaker Switch'"
++		PlaybackPCM "hw:${CardId},0"
++	}
++}
++
++SectionDevice."Headphones" {
++	Comment "Headphones"
++
++	ConflictingDevice [
++		"Handset"
++		"Speaker"
++	]
++
++	EnableSequence [
++		cset "name='Headphone Switch' on,on"
++		cset "name='HPOUTL PGA' 0 unmute"
++		cset "name='HPOUTR PGA' 0 unmute"
++		cset "name='Headphone Aux Volume' 0"
++		cset "name='Headphone Volume' 121,121"
++	]
++
++	DisableSequence [
++		cset "name='Headphone Switch' off off"
++		cset "name='HPOUTL PGA' 0 mute"
++		cset "name='HPOUTR PGA' 0 mute"
++	]
++
++	Value {
++		PlaybackPriority "1000"
++		PlaybackChannels "2"
++		PlaybackVolume "name='Headphone Volume'"
++		PlaybackSwitch "name='Headphone Switch'"
++		PlaybackPCM "hw:${CardId},0"
++		JackControl "Headphones Jack"
++	}
++}
++
++SectionDevice."Mic" {
++	Comment "Internal Microphone"
++
++	ConflictingDevice [
++		"Headset"
++	]
++
++	EnableSequence [
++		cset "name='Digital Capture Volume' 116,116"
++		cset "name='ADC L/R Swap Switch' on"
++	]
++
++	DisableSequence [
++		cset "name='Digital Capture Volume' 0,0"
++		cset "name='ADC L/R Swap Switch' off"
++	]
++
++	Value {
++		CapturePriority "500"
++		CaptureChannels "2"
++		CaptureVolume "name='Digital Capture Volume'"
++		CapturePCM "hw:${CardId},0"
++	}
++}
++
++SectionDevice."Headset" {
++	Comment "Headset Microphone"
++
++	ConflictingDevice [
++		"Mic"
++	]
++
++	EnableSequence [
++		cset "name='MIXINR IN3R Switch' on"
++		cset "name='MIXINR IN3R Volume' 7"
++	]
++
++	DisableSequence [
++		cset "name='MIXINR IN3R Switch' off"
++		cset "name='MIXINR IN3R Volume' 0"
++	]
++
++	Value {
++		CapturePriority "100"
++		CaptureChannels "2"
++		CaptureVolume "name='MIXINR IN3R Volume'"
++		CaptureSwitch "name='MIXINR IN3R Switch'"
++		CapturePCM "hw:${CardId},0"
++		JackControl "Headphones Jack"
++	}
++}
+diff --git a/ucm2/Librem_5/Librem_5.conf b/ucm2/Librem_5/Librem_5.conf
+new file mode 100644
+index 0000000..3741216
+--- /dev/null
++++ b/ucm2/Librem_5/Librem_5.conf
+@@ -0,0 +1,6 @@
++Syntax 2
++
++SectionUseCase."HiFi" {
++	File "HiFi.conf"
++	Comment "Default"
++}
+diff --git a/ucm2/Librem_5/wm8962.conf b/ucm2/Librem_5/wm8962.conf
+new file mode 120000
+index 0000000..ea620cc
+--- /dev/null
++++ b/ucm2/Librem_5/wm8962.conf
+@@ -0,0 +1 @@
++Librem_5.conf
+\ No newline at end of file
+diff --git a/ucm2/wm8962 b/ucm2/wm8962
+new file mode 120000
+index 0000000..9c04c54
+--- /dev/null
++++ b/ucm2/wm8962
+@@ -0,0 +1 @@
++Librem_5
+\ No newline at end of file
+-- 
+2.28.0
+
