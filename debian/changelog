@@ -7,6 +7,8 @@ alsa-ucm-conf (1.2.6.3-1) UNRELEASED; urgency=medium
   * Update Standards-Version to 4.6.0.
   * Add profiles for PinePhone, PineTab and librem5 hardware from Arnaud
     Ferraris to help upstreaming them (closes: #984654).
+  * Move chmodding to execute_after_dh_fixperm target (thanks, Nicolas
+    Boulenguez).
 
  -- Jordi Mallach <jordi@debian.org>  Wed, 12 Jan 2022 00:24:12 +0100
 
