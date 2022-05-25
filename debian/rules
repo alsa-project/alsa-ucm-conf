@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	rm -f $(CURDIR)/debian/alsa-ucm-conf/usr/share/alsa/ucm2/conf.virt.d/.gitignore
+
+execute_after_dh_fixperms:
+	chmod -x $(CURDIR)/debian/alsa-ucm-conf/usr/share/alsa/ucm2/Intel/kblrt5660/*
