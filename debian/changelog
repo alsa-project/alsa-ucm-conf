@@ -1,3 +1,9 @@
+alsa-ucm-conf (1.2.7.2-1pop1) jammy; urgency=medium
+
+  * Pull from Upstream
+
+ -- Brock Szuszczewicz <bnr@tuta.io>  Thu, 21 Jul 2022 21:34:09 -0600
+
 alsa-ucm-conf (1.2.6.3-1ubuntu2pop1) UNRELEASED; urgency=medium
 
   * Pull from Upstream
