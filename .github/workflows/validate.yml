@@ -24,8 +24,8 @@ jobs:
     - name: Validate syntax
       run: |
         cd alsa-tests/python/ucm-validator
-        make LOGLEVEL=2 verify
+        make V=2 verify
     - name: Validate configurations
       run: |
         cd alsa-tests/python/ucm-validator
-        make LOGLEVEL=2 configs
+        make V=2 configs
