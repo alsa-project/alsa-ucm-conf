@@ -7,6 +7,31 @@ and required control sequences in an incomplete or a wrong way.
 
 It is not required to be a developer to test your hardware.
 
+Use latest UCM configuration
+----------------------------
+
+The archive can be obtained from
+https://github.com/alsa-project/alsa-ucm-conf/archive/refs/heads/master.tar.gz
+or fetched from github https://github.com/alsa-project/alsa-ucm-conf .
+
+The default path for ucm2 configuration is `/usr/share/alsa/ucm2`. This
+path may be redirected temporary to the latest configuration tree like:
+
+````
+mv /usr/share/alsa/ucm2 /usr/share/alsa/ucm2.distro
+ln -s /NEW/UCM2/TREE/PATH /usr/share/alsa/ucm2
+````
+
+It is necessary to restart pulseaudio or pipewire to use the new ucm2
+configuration.
+
+The configuration revert is simple:
+
+````
+rm /usr/share/alsa/ucm2
+mv /usr/share/alsa/ucm2.distro /usr/share/alsa/ucm2
+````
+
 Useful commands and tools
 -------------------------
 
