@@ -11,7 +11,7 @@ files are extra (only informational).
 Example:
 
 ```
-tar xvjf alsa-ucm-conf-1.2.6.2.tar.bz2 -C /usr/share/alsa --strip-components=1 "*/ucm" "*/ucm2"
+tar xvjf alsa-ucm-conf-1.2.6.2.tar.bz2 -C /usr/share/alsa --strip-components=1 --wildcards "*/ucm" "*/ucm2"
 ```
 
 The latest configuration can be obtained with those commands:
