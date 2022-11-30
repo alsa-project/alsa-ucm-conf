@@ -1,9 +1,9 @@
-alsa-ucm-conf (1.2.8-1) UNRELEASED; urgency=medium
+alsa-ucm-conf (1.2.8-1) unstable; urgency=medium
 
   * New upstream release.
     - adds support for the Lenovo C630 laptop (closes: #1017424).
 
- -- Jordi Mallach <jordi@debian.org>  Tue, 29 Nov 2022 16:20:54 +0100
+ -- Jordi Mallach <jordi@debian.org>  Wed, 30 Nov 2022 18:22:03 +0100
 
 alsa-ucm-conf (1.2.7.2-1) unstable; urgency=medium
 
