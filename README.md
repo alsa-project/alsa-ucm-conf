@@ -18,7 +18,7 @@ The latest configuration can be obtained with those commands:
 
 ```
 curl -L -o alsa-ucm-conf.tar.gz https://github.com/alsa-project/alsa-ucm-conf/archive/refs/heads/master.tar.gz
-tar xvzf alsa-ucm-conf.tar.gz -C /usr/share/alsa --strip-components=1 "*/ucm" "*/ucm2"
+tar xvzf alsa-ucm-conf.tar.gz -C /usr/share/alsa --strip-components=1 --wildcards "*/ucm" "*/ucm2"
 ```
 
 ### Validation
