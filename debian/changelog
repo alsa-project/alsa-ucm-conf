@@ -1,4 +1,4 @@
-alsa-ucm-conf (1.2.9-1) UNRELEASED; urgency=medium
+alsa-ucm-conf (1.2.9-1) unstable; urgency=medium
 
   * New upstream release.
   * Bump dependency on libasound to (>= 1.2.7), for Syntax 6 support
@@ -6,7 +6,7 @@ alsa-ucm-conf (1.2.9-1) UNRELEASED; urgency=medium
   * Update copyright years.
   * Update Standards-Version to 4.6.2, with no changes needed.
 
- -- Jordi Mallach <jordi@debian.org>  Tue, 13 Jun 2023 12:03:31 +0200
+ -- Jordi Mallach <jordi@debian.org>  Tue, 13 Jun 2023 12:05:57 +0200
 
 alsa-ucm-conf (1.2.8-1) unstable; urgency=medium
 
