@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: alsa-ucm-conf
 Upstream-Contact: Jarsolav Kysela <perex@suse.cz>
-Source: ftp://ftp.alsa-project.org/pub/lib
+Source: https://ftp.alsa-project.org/files/pub/lib/
 Comment: This package was debianised by Jordi Mallach.
          It is maintained by the participants in
          the alsa-team project at salsa.debian.org.
