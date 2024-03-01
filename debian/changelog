@@ -1,10 +1,10 @@
-alsa-ucm-conf (1.2.11-1) UNRELEASED; urgency=medium
+alsa-ucm-conf (1.2.11-1) unstable; urgency=medium
 
   * New upstream release.
   * Update watch and copyright files for new https-based download URL.
   * Update copyright years.
 
- -- Jordi Mallach <jordi@debian.org>  Fri, 01 Mar 2024 11:25:50 +0100
+ -- Jordi Mallach <jordi@debian.org>  Fri, 01 Mar 2024 11:28:05 +0100
 
 alsa-ucm-conf (1.2.10-1) unstable; urgency=medium
 
