@@ -1,6 +1,7 @@
 alsa-ucm-conf (1.2.11-1) unstable; urgency=medium
 
   * New upstream release.
+    - fixes undefined var in split.conf (closes: #1053869).
   * Update watch and copyright files for new https-based download URL.
   * Update copyright years.
 
