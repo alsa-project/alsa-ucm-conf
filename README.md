@@ -21,6 +21,20 @@ curl -L -o alsa-ucm-conf.tar.gz https://github.com/alsa-project/alsa-ucm-conf/ar
 tar xvzf alsa-ucm-conf.tar.gz -C /usr/share/alsa --strip-components=1 --wildcards "*/ucm" "*/ucm2"
 ```
 
+### State file
+
+Some values may be set only one time by UCM and then they are saved to
+the global ALSA sound state file. Please, make sure that this state
+is cleared, if you have an issue.
+
+Commands for standard systemd setup (relogin is required):
+
+```
+systemctl stop alsa-state
+rm /var/lib/alsa/asound.state
+systemctl start alsa-state
+```
+
 ### Validation
 
 ![Validate UCM configuration](https://github.com/alsa-project/alsa-ucm-conf/workflows/Validate%20UCM%20configuration/badge.svg?branch=master)
