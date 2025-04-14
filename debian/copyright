@@ -11,11 +11,11 @@ Copyright: 2019-2024 Advanced Linux Sound Architecture (ALSA) project
 License: BSD-3-clause
 
 Files: debian/*
-Copyright: 2020-2024 Debian ALSA Maintainers
+Copyright: 2020-2025 Debian ALSA Maintainers
 License: BSD-3-clause
 
 License: BSD-3-clause
- Copyright (c) 2019-2024, Advanced Linux Sound Architecture (ALSA) project
+ Copyright (c) 2019-2025, Advanced Linux Sound Architecture (ALSA) project
  All rights reserved.
  .
  Redistribution and use in source and binary forms, with or without
