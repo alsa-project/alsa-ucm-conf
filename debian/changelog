@@ -1,4 +1,4 @@
-alsa-ucm-conf (1.2.14-1) UNRELEASED; urgency=medium
+alsa-ucm-conf (1.2.14-1) unstable; urgency=medium
 
   * New upstream release.
   * Update Standards-Version to 4.7.2, with no changes needed.
@@ -8,7 +8,7 @@ alsa-ucm-conf (1.2.14-1) UNRELEASED; urgency=medium
     (partially addresses: #1059871).
   * Remove upstream patch from previous upload.
 
- -- Jordi Mallach <jordi@debian.org>  Mon, 14 Apr 2025 20:32:52 +0200
+ -- Jordi Mallach <jordi@debian.org>  Mon, 14 Apr 2025 20:40:01 +0200
 
 alsa-ucm-conf (1.2.13-2) unstable; urgency=medium
 
