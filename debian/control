@@ -21,4 +21,8 @@ Description: ALSA Use Case Manager configuration files
  input/output names and routing for specific audio hardware. They can be
  used with the alsaucm tool.
  .
+ Installing these configuration files is absolutely necessary to make some
+ sound hardware work. Its installation is highly recommended in order to
+ use ALSA-backed hardware.
+ .
  ALSA is the Advanced Linux Sound Architecture.
