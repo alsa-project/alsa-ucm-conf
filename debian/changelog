@@ -6,6 +6,7 @@ alsa-ucm-conf (1.2.14-1) UNRELEASED; urgency=medium
   * Extend package description to make it clear this package is
     required to make sound work on some hardware configurations
     (partially addresses: #1059871).
+  * Remove upstream patch from previous upload.
 
  -- Jordi Mallach <jordi@debian.org>  Mon, 14 Apr 2025 20:32:52 +0200
 
