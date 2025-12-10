@@ -1,3 +1,4 @@
-version=4
-opts="pgpsigurlmangle=s/$/.sig/" \
-https://www.alsa-project.org/files/pub/lib/alsa-ucm-conf-(.+)\.tar\.bz2
+Version: 5
+Source: https://www.alsa-project.org/files/pub/lib/
+Matching-Pattern: @PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@
+Pgp-Sig-Url-Mangle: s%$%.sig%
