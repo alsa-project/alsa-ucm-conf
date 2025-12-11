@@ -10,7 +10,6 @@ Standards-Version: 4.7.2
 Homepage: https://www.alsa-project.org/
 Vcs-Git: https://salsa.debian.org/alsa-team/alsa-ucm-conf.git
 Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-ucm-conf
-Rules-Requires-Root: no
 
 Package: alsa-ucm-conf
 Architecture: all
