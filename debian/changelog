@@ -1,3 +1,11 @@
+alsa-ucm-conf (1.2.15-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Move debian-watch file to version 5 format.
+  * Drop redundant Rules-Requires-Root control field.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 11 Dec 2025 09:18:47 +0100
+
 alsa-ucm-conf (1.2.14-1) unstable; urgency=medium
 
   * New upstream release.
