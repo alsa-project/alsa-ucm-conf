@@ -13,7 +13,7 @@ Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-ucm-conf
 Package: alsa-ucm-conf
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, libasound2t64
+Depends: ${misc:Depends}, libasound2t64 (>= 1.2.15)
 Description: ALSA Use Case Manager configuration files
  This package contains ALSA Use Case Manager configuration of audio
  input/output names and routing for specific audio hardware. They can be
