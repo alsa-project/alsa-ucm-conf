@@ -1,3 +1,14 @@
+alsa-ucm-conf (1.2.15.1-1) unstable; urgency=medium
+
+  * New upstream release.
+    - fixes regressions for some cards (closes: #1123857, #1124077)
+  * Remove redundant Priority control field.
+  * Update Standards-Version to 4.7.3.
+  * Tighten libasound2 dep to >= 1.2.15 for Syntax 8 support
+    (closes: #1123852).
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 07 Jan 2026 23:30:53 +0100
+
 alsa-ucm-conf (1.2.15-1) unstable; urgency=medium
 
   * New upstream release.
