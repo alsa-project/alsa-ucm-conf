@@ -4,7 +4,7 @@ Date: Thu, 8 Oct 2020 17:45:30 +0200
 Subject: [PATCH] ucm2: add improved Librem 5 profile
 
 This commit adds a more fine-tuned UCM profile for the Librem 5:
-* input and ouput paths are split so we can select both devices
+* input and output paths are split so we can select both devices
   separately
 * it uses standard UCM names for the use-cases and devices
 
