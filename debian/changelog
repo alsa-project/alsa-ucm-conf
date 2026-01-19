@@ -1,3 +1,12 @@
+alsa-ucm-conf (1.2.15.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update dh_fixperms override.
+  * Update copyright years.
+  * Fix typo in patch description.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 19 Jan 2026 10:37:17 +0100
+
 alsa-ucm-conf (1.2.15.1-1) unstable; urgency=medium
 
   * New upstream release.
