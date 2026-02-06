@@ -1,3 +1,9 @@
+alsa-ucm-conf (1.2.15.3-1pop0) jammy; urgency=medium
+
+  * Pop!_OS patches
+
+ -- Jeremy Soller <jeremy@system76.com>  Fri, 06 Feb 2026 08:59:16 -0700
+
 alsa-ucm-conf (1.2.15.3-1) unstable; urgency=medium
 
   * New upstream release.
