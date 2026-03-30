@@ -1,0 +1,62 @@
+# Label descriptions configuration
+# Each label can have a description that will be posted as a comment when the label is applied
+
+labels:
+  - name: kernel driver
+    description: |
+      ## ALSA Linux kernel driver work
+
+      **Note:** This issue does not appear to be related to this repository, but rather seems to be an ALSA kernel driver issue.
+
+      Please direct ALSA driver related discussions to the linux-sound@vger.kernel.org mailing list.
+
+      **Bugtracker:** https://bugzilla.kernel.org (Audio component)
+
+      For kernel patches, please see: https://www.kernel.org/doc/html/latest/process/submitting-patches.html
+
+  - name: signed off by
+    description: |
+      ## Missing correct Signed-off-by line
+
+      This pull request has commits that are missing proper `Signed-off-by` lines or use invalid email addresses.
+
+      **Requirements:**
+      - Each commit must include at least one `Signed-off-by: Your Name <your.email@example.com>` line
+      - Commit author email must appear in at least one Signed-off-by line
+      - Commit committer email must appear in at least one Signed-off-by line (if not a GitHub bot)
+      - Multiple Signed-off-by lines are allowed for co-authored commits
+      - Anonymous GitHub emails (like `@users.noreply.github.com`) are not allowed
+      - The Signed-off-by line indicates that you agree to the Developer Certificate of Origin (DCO)
+
+      **How to fix:**
+      ```bash
+      # Configure your git identity first (if needed):
+      git config user.name "Your Name"
+      git config user.email "your.email@example.com"
+
+      # For the last commit:
+      git commit --amend --signoff
+
+      # For multiple commits, use interactive rebase:
+      git rebase -i HEAD~N --signoff
+
+      # For co-authored commits, add multiple Signed-off-by lines manually:
+      git commit --amend
+      # Then add in the commit message:
+      # Signed-off-by: Author One <author1@example.com>
+      # Signed-off-by: Author Two <author2@example.com>
+
+      # Then force push:
+      git push --force-with-lease
+      ```
+
+      **Reference:** [Developer Certificate of Origin](https://developercertificate.org/)
+
+# Signed-off-by validation configuration
+sob_validation:
+  # Email patterns to deny (supports wildcards)
+  denied_emails:
+    - '*@users.noreply.github.com'
+    # Add more patterns as needed:
+    # - '*@example-blocked-domain.com'
+    # - 'noreply@*'

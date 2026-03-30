@@ -1,0 +1,126 @@
+name: Reusable Label Commenter
+
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        description: 'Path to label descriptions config file'
+        required: false
+        type: string
+        default: '.github/label-descriptions.yml'
+    secrets:
+      github-token:
+        description: 'GitHub token for API access'
+        required: false
+
+jobs:
+  add-label-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read and parse config
+        id: read-config
+        run: |
+          if [ ! -f "${{ inputs.config-path }}" ]; then
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Warning: Config file ${{ inputs.config-path }} not found"
+            exit 0
+          fi
+
+          echo "exists=true" >> $GITHUB_OUTPUT
+
+          # Convert YAML to JSON using Python
+          python3 << 'PYTHON_EOF' > /tmp/config.json
+          import yaml
+          import json
+          with open('${{ inputs.config-path }}', 'r') as f:
+            config = yaml.safe_load(f)
+          print(json.dumps(config))
+          PYTHON_EOF
+
+          # Store JSON as output (escaped for multiline)
+          echo "config<<EOF" >> $GITHUB_OUTPUT
+          cat /tmp/config.json >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Handle label action
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.github-token || secrets.GITHUB_TOKEN }}
+          script: |
+            // Get the label and action
+            const label = context.payload.label.name;
+            const action = context.payload.action;
+
+            // Check if issue or PR
+            const issueNumber = context.payload.issue?.number || context.payload.pull_request?.number;
+            if (!issueNumber) {
+              console.log('No issue or PR number found');
+              return;
+            }
+
+            // Create unique identifier for this label comment
+            const commentId = `<!-- label-commenter:${label} -->`;
+
+            // Get existing comments
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+            });
+
+            // Find existing comment with this label ID
+            const existingComment = comments.find(comment =>
+              comment.body?.includes(commentId)
+            );
+
+            if (action === 'unlabeled') {
+              // Label was removed - delete the comment if it exists
+              if (existingComment) {
+                await github.rest.issues.deleteComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existingComment.id,
+                });
+                console.log(`Deleted comment for removed label: ${label}`);
+              } else {
+                console.log(`No comment found for removed label: ${label}`);
+              }
+            } else if (action === 'labeled') {
+              // Label was added - add or update comment
+              const config = JSON.parse(process.env.CONFIG_JSON || '{}');
+
+              // Find description for this label
+              const labelConfig = config.labels?.find(l => l.name === label);
+
+              if (!labelConfig || !labelConfig.description) {
+                console.log(`No description configured for label: ${label}`);
+                return;
+              }
+
+              const commentBody = `${commentId}\n${labelConfig.description}`;
+
+              if (existingComment) {
+                // Update existing comment
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existingComment.id,
+                  body: commentBody,
+                });
+                console.log(`Updated comment for label: ${label}`);
+              } else {
+                // Create new comment
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: commentBody,
+                });
+                console.log(`Created comment for label: ${label}`);
+              }
+            }
+        env:
+          CONFIG_JSON: ${{ steps.read-config.outputs.config }}
