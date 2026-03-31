@@ -105,8 +105,8 @@ jobs:
               const authorEmail = commit.commit.author.email;
               const committerEmail = commit.commit.committer.email;
 
-              // Find all Signed-off-by lines
-              const sobPattern = /^Signed-off-by:\s+(.+)\s+<(.+)>$/gm;
+              // Find all Signed-off-by lines (case-insensitive)
+              const sobPattern = /^Signed-off-by:\s+(.+)\s+<(.+)>$/gim;
               const sobMatches = [...message.matchAll(sobPattern)];
 
               if (sobMatches.length === 0) {
