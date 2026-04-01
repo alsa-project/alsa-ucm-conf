@@ -11,13 +11,13 @@ on:
   pull_request_target:
     types: [labeled, unlabeled]
 
-permissions:
-  contents: read
-  pull-requests: write
-  issues: write
-
 jobs:
   handle-label:
     uses: ./.github/workflows/reusable-label-commenter.yml
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
     with:
       config-path: '.github/label-descriptions.yml'
+    secrets: inherit
