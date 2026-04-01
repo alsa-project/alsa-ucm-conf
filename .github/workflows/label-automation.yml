@@ -21,5 +21,3 @@ jobs:
     uses: ./.github/workflows/reusable-label-commenter.yml
     with:
       config-path: '.github/label-descriptions.yml'
-    secrets:
-      github-token: ${{ secrets.GITHUB_TOKEN }}

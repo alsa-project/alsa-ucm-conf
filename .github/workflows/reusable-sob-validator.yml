@@ -18,10 +18,6 @@ on:
         required: false
         type: string
         default: ''
-    secrets:
-      github-token:
-        description: 'GitHub token for API access'
-        required: false
 
 jobs:
   validate-signedoff:
@@ -81,7 +77,7 @@ jobs:
         id: validate
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.github-token || secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             // Parse config from JSON
             const config = JSON.parse(process.env.CONFIG_JSON);
@@ -187,7 +183,7 @@ jobs:
         if: steps.validate.outputs.has_issues == 'true'
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.github-token || secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
@@ -200,7 +196,7 @@ jobs:
         if: steps.validate.outputs.has_issues == 'true'
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.github-token || secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const commentId = '<!-- sob-validator -->';
             const issues = process.env.SOB_ISSUES;
@@ -253,7 +249,7 @@ jobs:
         uses: actions/github-script@v7
         continue-on-error: true
         with:
-          github-token: ${{ secrets.github-token || secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const prNumber = parseInt('${{ steps.pr-number.outputs.number }}', 10);
             const labelName = '${{ inputs.sob-label }}';
