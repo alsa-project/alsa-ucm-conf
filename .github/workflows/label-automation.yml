@@ -1,8 +1,8 @@
- Example workflow for using the label commenter
+# Example workflow for using the label commenter
 # Place this file in your repository at: .github/workflows/label-automation.yml
 #
 # You also need to create .github/label-descriptions.yml in your repository
-# Example config: https://github.com/alsa-project/github-workflows/blob/main/repo/config/label-descriptions.yml
+# Example config: https://github.com/alsa-project/github-workflows/blob/main/config/label-descriptions.yml
 
 name: Label Automation
 
@@ -16,14 +16,14 @@ on:
 
 jobs:
   handle-label:
-    uses: alsa-project/github-workflows/repo/workflows/label-commenter.yml@main
+    uses: alsa-project/github-workflows/.github/workflows/label-commenter.yml@main
     permissions:
       contents: read
       pull-requests: write
       issues: write
     with:
       # Path to your local config file OR URL to remote config (required)
-      config-path: 'https://raw.githubusercontent.com/alsa-project/github-workflows/main/repo/config/label-descriptions.yml'
+      config-path: 'https://raw.githubusercontent.com/alsa-project/github-workflows/main/config/label-descriptions.yml'
       # Local file example: '.github/label-descriptions.yml'
-      # Remote URL example: 'https://raw.githubusercontent.com/alsa-project/github-workflows/main/repo/config/label-descriptions.yml'
+      # Remote URL example: 'https://raw.githubusercontent.com/alsa-project/github-workflows/main/config/label-descriptions.yml'
     secrets: inherit
